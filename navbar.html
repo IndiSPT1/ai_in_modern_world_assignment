@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CDN CSS Link --->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap CDN Icon Links --->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background: fixed url(image/gw-background.png) no-repeat center;
+            background-size: cover;
+        }
+        .my-nav-bg{
+            background-color: #4b7273;
+            position: sticky;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .my-nav-bg a{
+            color: white;
+        }
+        .my-dropdown{
+            background-color: #4b7273;
+        }
+        .nav-link:hover, .dropdown-item:hover {
+            background-color: #356262;
+            border-radius: 5px;
+            color: white;
+        }
+        .my-active{
+            border-bottom: solid 2px white;
+            color: white;
+        }
+        @media (min-width: 576px){
+            .search_box{width: 90%;}
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg my-nav-bg">
+         <a href="" class="navbar-brand ms-lg-3 mx-sm-auto"><img src="image/logo.png" alt="logo" width="50px" height="50px"></a>
+         <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#nav_id"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="nav_id">
+            <ul class="navbar-nav ms-3">
+                <li class="nav-items my-active"><a href="#" class="nav-link"><i class="bi bi-house-fill me-2"></i>Home</a></li>
+                <li class="nav-items"><a href="#" class="nav-link"><i class="bi bi-file-earmark-person-fill me-2"></i>About</a></li>
+                <li class="nav-items dropdown"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-laptop-fill me-2"></i>Contents</a>
+                    <ul class="dropdown-menu my-dropdown">
+                        <li><a href="#" class="dropdown-item">Content 1</a></li>
+                        <li><a href="#" class="dropdown-item">Content 2</a></li>
+                        <li><a href="#" class="dropdown-item">Content 3</a></li>
+                     </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-lg-auto">
+                <input class="form-control mx-sm-auto me-lg-2 my-auto search_box " type="search" placeholder="Search">
+                <li class="nav-item items dropdown me-lg-2 text-center position-relative"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img src="image/human-pfp.png" alt="logo" width="40px" height="40px"></a></i>
+                <ul class="dropdown-menu dropdown-menu-end my-dropdown">
+                    <li><a href="#" class="dropdown-item">Register</a></li>
+                    <li><a href="#" class="dropdown-item">Log In</a></li>
+                    <hr>
+                    <li><a href="#" class="dropdown-item">Setting</a></li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+
+<!-- Bootstrap JS Link -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>

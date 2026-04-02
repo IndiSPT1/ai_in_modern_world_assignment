@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CDN CSS Link --->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap CDN Icon Links --->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- AOS CSS Link -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background: fixed url(image/gw-background.png) no-repeat center;
+            background-size: cover;
+            color: white;
+        }
+        /* nav css start */
+        .my-nav-bg{
+            background-color: #4b7273;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            z-index: 2000;
+        }
+        .my-nav-bg a{
+            color: white;
+        }
+        .my-dropdown{
+            background-color: #4b7273;
+        }
+        .nav-link:hover, .dropdown-item:hover {
+            background-color: #356262;
+            border-radius: 5px;
+            color: white;
+        }
+        .my-active{
+            border-bottom: solid 2px white;
+            color: white;
+        }
+        @media (min-width: 576px){
+            .search_box{width: 90%;}
+        }
+        /* nav css end */
+
+        /* modal css start */
+        .modal_card {
+        background:#385f61;
+        border-radius: 20px;
+        padding: 30px;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .left-panel {
+        background: linear-gradient(135deg, #4b7273, #4b7273);
+        border-radius: 15px;
+        height: 100%;
+        display: flex;
+        align-items: end;
+        padding: 20px;
+        }
+
+        .form-control {
+        background: #356262;
+        border: none;
+        color: white;
+        }
+
+        .form-control::placeholder {
+        color: white;
+        }
+
+        .btn-green {
+        background: #5ae0d3;
+        border: none;
+        }
+
+        .btn-green:hover {
+        background: #318b90 ;
+        }
+
+        .social-btn {
+        border: 1px solid white;
+        color: white;
+        }
+
+        .overlay-text {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        }
+        /* modal css end */
+
+        /* content - ai application - css start */
+        .my-content-active{
+            background-color: #356262;
+            border-radius: 5px;
+            color: white;
+            box-shadow: 0 0 7px #cfd6d6;
+        }
+        .carousel-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .carousel-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: #4b7273;
+        }
+        .app_h4, .app_h2{
+            color: #318b90;
+        }
+        .btn-outline{
+            border-color: white;
+            color: white;
+        }
+        .btn-outline:hover{
+            background-color: white;
+            color: black;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
+        }
+        /* content - ai application - css start */
+
+        /* offcanvas css start */
+        #sidebar {
+            background-color: #4b7273;
+            color: white;
+        }
+        .nav li{
+            background-color: #356262;
+            border-radius: 5px;
+        }
+        @media (min-width: 992px) {
+            #sidebar {
+                position: fixed;
+                transform: none;
+                visibility: visible;
+                margin-top: 70px;
+                width: 250px;
+                border-right: 1px solid #444;
+            }
+            .menu-btn{
+                display: none;
+            }
+            .my-offcanvas-close{
+                display: none;
+            }
+        }
+        @media (max-width: 992px) {
+            #sidebar {
+                width: 250px;
+                margin-top: 73px;
+            }
+        }
+        /* offcanvas css end */
+    </style>
+</head>
+<body>
+    
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg my-nav-bg nabar-dark">
+        <button type="button" class="btn menu-btn m-2" data-bs-toggle="offcanvas" data-bs-target="#sidebar">Menu <i class="bi bi-caret-down-fill"></i></button>
+         <a href="home.html" class="navbar-brand ms-lg-3 mx-sm-auto"><img src="image/logo.png" alt="logo" width="50px" height="50px"></a>
+         <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#nav_id"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="nav_id">
+            <!-- Menu Button -->
+            <ul class="navbar-nav ms-3">
+                
+                <li class="nav-items my-active"><a href="home.html" class="nav-link my-nav-link"><i class="bi bi-house-fill me-2"></i>Home</a></li>
+                <li class="nav-items"><a href="#" class="nav-link  my-nav-link"><i class="bi bi-file-earmark-person-fill me-2"></i>About</a></li>
+                <li class="nav-items dropdown"><a href="#" class="nav-link  my-nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-laptop-fill me-2"></i>Contents</a>
+                    <ul class="dropdown-menu my-dropdown">
+                        <li><a href="#" class="dropdown-item">Content 1</a></li>
+                        <li><a href="#" class="dropdown-item">Content 2</a></li>
+                        <li><a href="#" class="dropdown-item">Content 3</a></li>
+                     </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-lg-auto">
+                <input class="form-control mx-sm-auto me-lg-2 my-auto search_box " type="search" placeholder="Search">
+                <li class="nav-item items dropdown me-lg-2 text-center position-relative"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img src="image/human-pfp.png" alt="logo" width="40px" height="40px"></a></i>
+                <ul class="dropdown-menu dropdown-menu-end my-dropdown">
+                    <li><a href="#signupModal" class="dropdown-item" data-bs-toggle="modal">Register</a></li>
+                    <li><a href="#loginModal" class="dropdown-item" data-bs-toggle="modal">Log In</a></li>
+                    <hr>
+                    <li><a href="#" class="dropdown-item">Setting</a></li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Modal Start -->
+     <!-- ================= Log In ================= -->
+     <div class="modal fade" id="loginModal" data-bs-backdrop="static">
+        <div class="modal-dialog  modal-dialog-centered modal-xl">
+            <div class="modal-content p-0 border-0 bg-transparent">
+
+                <div class="modal_card position-relative">
+                    <button class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+
+                    <div class="row">
+
+                        <!--left-->
+                        <div class="col-md-6">
+                        <div class="left-panel p-0 overflow-hidden h-100">
+
+                            <div id="leftCarousel" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-inner h-100">
+
+                                <div class="carousel-item active h-100">
+                                <img src="image/leftpanel (1).jpg" class="d-block w-100 h-100">
+                                <div class="overlay-text">
+                                    <h4>Capturing Moments,<br>Creating Memories</h4>
+                                </div>
+                                </div>
+
+                                <div class="carousel-item h-100">
+                                <img src="image/leftpanel (2).jpg" class="d-block w-100 h-100">
+                                <div class="overlay-text">
+                                    <h4>Capturing Moments,<br>Creating Memories</h4>
+                                </div>
+                                </div>
+
+                            </div>
+                            </div>
+
+                        </div>
+                        </div>
+
+                        <!-- Right -->
+                        <div class="col-md-6 p-4 text-white">
+                        <h3>WELCOME BACK!</h3>
+                        <p class="small">Login to access your account</p>
+
+                        <form>
+                            <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email">
+                            </div>
+
+                            <div class="mb-3">
+                            <input type="password" class="form-control" placeholder="Password">
+                            </div>
+
+                            <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input">
+                            <label class="form-check-label">Remember me</label>
+                            </div>
+
+                            <button class="btn btn-green w-100 mb-3">Login</button>
+
+                            <div class="text-center text-white-50 mb-2">─────── or login with ───────</div>
+
+                            <div class="d-flex gap-2">
+                            <button class="btn social-btn w-50">Google</button>
+                            <button class="btn social-btn w-50">Apple</button>
+                            </div>
+
+                            <p class="text-center mt-3">Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal" class="text-info">Sign up</a></p>
+                        </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= Sign up ================= -->
+    <div class="modal fade" id="signupModal" data-bs-backdrop="static">
+        <div class="modal-dialog  modal-dialog-centered modal-xl">
+            <div class="modal-content p-0 border-0 bg-transparent">
+
+                <div class="modal_card position-relative">
+                    <button class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+
+                    <div class="row g-0">
+
+                    <!-- left -->
+                    <div class="col-md-6">
+                        <div class="left-panel p-0 overflow-hidden h-100">
+
+                        <div id="carouselSignup" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-inner h-100">
+
+                            <div class="carousel-item active h-100">
+                                <img src="image/leftpanel (1).jpg" class="d-block w-100 h-100">
+                                <div class="overlay-text">
+                                <h4>Create Your Account</h4>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item h-100">
+                                <img src="image/leftpanel (2).jpg" class="d-block w-100 h-100">
+                                <div class="overlay-text">
+                                <h4>Join us today</h4>
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="col-md-6 p-4 text-white">
+                        <h3>SIGN UP</h3>
+                        <p class="small">Create a new account</p>
+
+                        <form>
+                        <input type="text" class="form-control mb-3" placeholder="Full Name">
+                        <input type="email" class="form-control mb-3" placeholder="Email">
+                        <input type="password" class="form-control mb-3" placeholder="Password">
+                        <input type="password" class="form-control mb-3" placeholder="Confirm Password">
+
+                        <button class="btn btn-green w-100 mb-3">Sign Up</button>
+
+                        <p class="text-center mt-3">Already have an account?<a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal" class="text-info">Login</a></p>
+                        </form>
+                    </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal End -->
+
+
+
+     <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="static" id="sidebar">
+                    <div class="offcanvas-header">
+                        <h3 class="offcanvas-title fw-bold">AI in Modern World</h3>
+                        <button class="btn-close my-offcanvas-close ms-2" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>Contents</p>
+                        <hr>
+                        <ul class="nav flex-column mt-1">
+                            <li class="nav-item my-1"><a href="what_is_ai.html" class="nav-link text-light">What is AI?</a></li>
+                            <li class="nav-item my-1"><a href="type_of_ai.html" class="nav-link text-light">Type of AI</a></li>
+                            <li class="nav-item my-1"><a href="history_of_ai.html" class="nav-link text-light">History of AI</a></li>
+                            <li class="nav-item my-1"><a href="how_ai_work.html" class="nav-link text-light">How AI Works?</a></li>
+                        </ul>
+                        <p class="mt-3">Learn More!</p>
+                        <hr>
+                        <ul class="nav nav-pills flex-column mt-1">
+                            <li class="nav-item my-1"><a href="ai_application.html" class="nav-link text-light my-content-active">AI Applications</a></li>
+                            <li class="nav-item my-1"><a href="ai_in_education.html" class="nav-link text-light">AI in Education</a></li>
+                            <li class="nav-item my-1"><a href="ai_in_business.html" class="nav-link text-light">AI in Business</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-10 col-12 mt-5">
+                <div class="container my-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+
+                            <!-- AI Applications Carousel -->
+                            <div id="ai-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                                
+                                <!-- Carousel Indicators -->
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#ai-carousel" data-bs-slide-to="0" class="active"></button>
+                                    <button type="button" data-bs-target="#ai-carousel" data-bs-slide-to="1"></button>
+                                    <button type="button" data-bs-target="#ai-carousel" data-bs-slide-to="2"></button>
+                                </div>
+
+                                <!-- Carousel Inner -->
+                                <div class="carousel-inner">
+
+                                    <!-- Slide 1 -->
+                                    <div class="carousel-item active" data-bs-interval="3000">
+                                        <div class="row gy-3">
+                                            <div class="col-md-4">
+                                                <img src="image/ai_healthcare.webp" alt="AI in Healthcare" class="carousel-img">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <img src="image/ai_robotics.jpg" alt="AI in Robotics" class="carousel-img">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <img src="image/ai_virtual_assistant.webp" alt="AI Assistants" class="carousel-img">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide 2 -->
+                                    <div class="carousel-item" data-bs-interval="3000">
+                                        <div class="row gy-3">
+                                            <div class="col-md-4">
+                                                <img src="image/ai_finance.webp" alt="AI in Finance" class="carousel-img">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <img src="image/ai_education.png" alt="AI in Education" class="carousel-img">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <img src="image/ai_self_driving.jpg" alt="AI Self Driving" class="carousel-img">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide 3 -->
+                                    <div class="carousel-item" data-bs-interval="3000">
+                                        <div class="row gy-3">
+                                            <div class="col-md-4">
+                                                <img src="image/ai_chatbot.webp" alt="AI Chatbots" class="carousel-img">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <img src="image/ai_marketing.webp" alt="AI Marketing" class="carousel-img">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <img src="image/ai_security.jpeg" alt="AI Security" class="carousel-img">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Prev & Next -->
+                                <button class="carousel-control-prev" type="button" data-bs-target="#ai-carousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#ai-carousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon bg-dark rounded-circle p-3"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5 g-4">
+
+                        <!-- Feature 1: Machine Learning -->
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="p-4 rounded shadow" style="background: rgba(0,0,0,0.5); transition: transform 0.3s; height: auto;">
+                                <h4 class="app_h4">Machine Learning</h4>
+                                <p>AI systems learn from data and improve over time, creating smarter and more efficient solutions for real-world problems.</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2: Natural Language Processing -->
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="p-4 rounded shadow" style="background: rgba(0,0,0,0.5); transition: transform 0.3s; height: auto;">
+                                <h4 class="app_h4">Natural Language Processing</h4>
+                                <p>Enables AI to understand, interpret, and respond in human language, powering chatbots, translators, and virtual assistants.</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3: Computer Vision -->
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="p-4 rounded shadow" style="background: rgba(0,0,0,0.5); transition: transform 0.3s; height: auto;">
+                                <h4 class="app_h4">Computer Vision</h4>
+                                <p>AI analyzes images and videos to identify objects, faces, and patterns, powering autonomous vehicles, security, and medical imaging.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Optional CTA Row -->
+                    <div class="row mt-5 text-center" data-aos="zoom-in">
+                        <div class="col">
+                            <h2 class="app_h2">Explore the Future of AI</h2>
+                            <p>Discover applications, case studies, and tutorials to start your journey into artificial intelligence.</p>
+                            <a href="#" class="btn btn-outline btn-lg">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+     
+
+<!-- Bootstrap JS Link -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<!-- AOS JS Link -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Initiate AOS -->
+<script>AOS.init();</script>
+
+
+</body>
+</html>
